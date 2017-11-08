@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "863424423308",
+    "firebase_url": "https://singtostore-77f01.firebaseio.com",
+    "project_id": "singtostore-77f01",
+    "storage_bucket": "singtostore-77f01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863424423308:android:cdef9fe70e0134e4",
+        "android_client_info": {
+          "package_name": "store.singto.singtostore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863424423308-9nlbpi640gomlooe9j6ftkisee94bsqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLgAUSNEkqqR3lkArkVx9wNlFTb1VSNPs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

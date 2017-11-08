@@ -1,0 +1,9 @@
+<resources>
+    <string name="facebook_app_id">740063172851347</string>
+    <string name="fb_login_protocol_scheme">fb740063172851347</string>
+    <string name="app_name">SingtoStore</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="tab_me">Me</string>
+</resources>
