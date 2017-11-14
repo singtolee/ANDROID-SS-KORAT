@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.RoundedImg;
 import store.singto.singtostore.loginRegister.LoginActivity;
 
 public class TabMeFragment extends Fragment {
@@ -157,8 +158,11 @@ public class TabMeFragment extends Fragment {
         loginRegisterBtn.setVisibility(View.INVISIBLE);
         userNameTextView.setVisibility(View.VISIBLE);
         exitBtn.setVisibility(View.VISIBLE);
-        Picasso.with(getActivity()).load(user.getPhotoUrl()).into(userAvatarImgView);
-        userNameTextView.setText(user.getDisplayName());
+        Picasso.with(getActivity()).load(user.getPhotoUrl()).transform(new RoundedImg()).error(R.mipmap.ic_useravatar).into(userAvatarImgView);
+        if(user.getDisplayName() != null){
+            userNameTextView.setText(user.getDisplayName());
+        }
+
 
     }
 

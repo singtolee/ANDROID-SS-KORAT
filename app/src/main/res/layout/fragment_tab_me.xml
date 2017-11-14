@@ -18,7 +18,8 @@
             android:id="@+id/userAvatar"
             android:layout_width="@dimen/dp80"
             android:layout_height="@dimen/dp80"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp16"
             android:src="@mipmap/ic_useravatar" />
 
         <TextView
