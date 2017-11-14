@@ -1,9 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="store.singto.singtostore.loginRegister.LoginActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="@dimen/dp100"
+        android:layout_height="@dimen/dp100"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/applogo" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/userEmail"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:hint="@string/emailhint"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/userPassword"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:hint="@string/passwordhint"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/loginWithEmailBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp20"
+        android:text="@string/login"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/forgetPasswordBtn"
+        android:textColor="@color/colorDarkGray"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@null"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgetpassword" />
+
+
+    <Button
+        android:id="@+id/loginwithfacebookBtn"
+        android:textColor="@color/colorWhite"
+        android:background="@color/facebookblue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/loginwithfacebook"
+        />
+
+    <Button
+        android:id="@+id/gotoRegisterBtn"
+        android:background="@null"
+        android:textColor="@color/colorDarkGray"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/registeraccount"/>
+
+
+</LinearLayout>

@@ -6,4 +6,14 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="tab_me">Me</string>
+    <string name="yourname">Your Name</string>
+    <string name="telluserlogin">Login or Register</string>
+    <string name="emailhint">Email</string>
+    <string name="passwordhint">Password</string>
+    <string name="login">Login</string>
+    <string name="forgetpassword">Forget Password?</string>
+    <string name="loginwithfacebook">Login with Facebook</string>
+    <string name="registeraccount">Go to Register</string>
+    <string name="facebooklogincancelled">Login Cancelled</string>
+
 </resources>
