@@ -39,37 +39,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        gotoRegisterPageBtn = findViewById(R.id.gotoRegisterBtn);
-        gotoRegisterPageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-            }
-        });
-
-        fbLoginBtn = findViewById(R.id.loginwithfacebookBtn);
-        fbLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginManager.logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
-            }
-        });
-
-        //display return arrow on action bar
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         mAuth = FirebaseAuth.getInstance();
         loginManager = LoginManager.getInstance();
-        //loginManager.logOut();
         callbackManager = CallbackManager.Factory.create();
         loginManager.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 //facebook login success, exchange credential with firebase;
                 exchangeCredential(loginResult.getAccessToken());
-
-
             }
 
             @Override
@@ -84,6 +61,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        setupUI();
 
 
     }
@@ -118,4 +97,33 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void setupUI(){
+
+        //display return arrow on action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        gotoRegisterPageBtn = findViewById(R.id.gotoRegisterBtn);
+        fbLoginBtn = findViewById(R.id.loginwithfacebookBtn);
+
+        gotoRegisterPageBtn.setOnClickListener(gotoRegisterPageClicked);
+        fbLoginBtn.setOnClickListener(fbLoginBtnClicked);
+
+    }
+
+    private View.OnClickListener gotoRegisterPageClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private View.OnClickListener fbLoginBtnClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            loginManager.logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
+        }
+    };
 }

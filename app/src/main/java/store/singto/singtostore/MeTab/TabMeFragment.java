@@ -53,11 +53,9 @@ public class TabMeFragment extends Fragment {
                 if(user != null){
                     //populate UI with user data
                     userinstate(user);
-                    Log.d("FACEBOOK", user.getEmail());
                 }else {
                     //set UI to log out state
                     useroutstate();
-                    Log.d("FACEBOOK", "NO USER");
                 }
             }
         };
