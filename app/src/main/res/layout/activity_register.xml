@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/activity_register"
+    android:paddingStart="@dimen/dp20"
+    android:paddingEnd="@dimen/dp20"
+    android:background="@color/colorBlack"
     tools:context="store.singto.singtostore.loginRegister.RegisterActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_marginTop="@dimen/dp20"
+        android:tint="@color/colorWhite"
+        android:src="@drawable/ic_highlight_off_black_24dp"
+        android:id="@+id/returnLoginPageImageViewAsBtn"
+        android:layout_width="@dimen/dp40"
+        android:layout_height="@dimen/dp40" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/dp40"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/userEmailRegister"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorWhite"
+            android:hint="@string/emailhint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/userPasswordRegister"
+            android:inputType="textPassword"
+            android:textColor="@color/colorWhite"
+            android:hint="@string/passwordhint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_marginTop="@dimen/dp40"
+        android:id="@+id/registerBtn"
+        android:text="@string/register"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

@@ -1,12 +1,17 @@
 package store.singto.singtostore.loginRegister;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -21,23 +26,46 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
+import java.util.Map;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.SaveEmailPassword;
+import store.singto.singtostore.TOOLS.Tools;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+
+    //sharedpreference
+    private SaveEmailPassword ep;
+    private Context context;
 
     private FirebaseAuth mAuth;
     private LoginManager loginManager;
     private CallbackManager callbackManager;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
-    private Button fbLoginBtn, gotoRegisterPageBtn;
+    private Button fbLoginBtn, gotoRegisterBtn, loginwithEmailBtn;
+    private ImageView returnBtn;
+    private TextView gotoResetPasswordBtn;
+
+    private EditText emailField, passwordField;
+
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        context = getApplicationContext();
+        ep = new SaveEmailPassword(context);
+
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage(getString(R.string.islogin));
 
         mAuth = FirebaseAuth.getInstance();
         loginManager = LoginManager.getInstance();
@@ -46,7 +74,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 //facebook login success, exchange credential with firebase;
+                progressDialog.show();
                 exchangeCredential(loginResult.getAccessToken());
+
             }
 
             @Override
@@ -62,9 +92,37 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user != null)
+                    finish();
+                }
+            };
+
         setupUI();
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Map<String, String> data = ep.read();
+        emailField.setText(data.get("email"));
+        passwordField.setText(data.get("password"));
+
+        Log.d("LOGIN", "SHOW ME");
+
+        //if user already login, call finish();
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(authStateListener);
     }
 
     @Override
@@ -73,15 +131,6 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home ) {
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void exchangeCredential(AccessToken token){
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
@@ -90,8 +139,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
                     //login firebase failed
+                    progressDialog.dismiss();
                 }else {
                     //login firebase success
+                    progressDialog.dismiss();
                     finish();
                 }
             }
@@ -100,30 +151,85 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setupUI(){
 
-        //display return arrow on action bar
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        emailField = findViewById(R.id.userEmailEditText);
+        passwordField = findViewById(R.id.userPasswordEditText);
 
-        gotoRegisterPageBtn = findViewById(R.id.gotoRegisterBtn);
         fbLoginBtn = findViewById(R.id.loginwithfacebookBtn);
-
-        gotoRegisterPageBtn.setOnClickListener(gotoRegisterPageClicked);
-        fbLoginBtn.setOnClickListener(fbLoginBtnClicked);
+        returnBtn = findViewById(R.id.returnImgAsBtn);
+        gotoRegisterBtn = findViewById(R.id.gotoregisterBtn);
+        loginwithEmailBtn = findViewById(R.id.loginWithEmailBtn);
+        gotoResetPasswordBtn = findViewById(R.id.forgetpasswordTextViewAsBtn);
+        //click listener
+        fbLoginBtn.setOnClickListener(this);
+        returnBtn.setOnClickListener(this);
+        gotoRegisterBtn.setOnClickListener(this);
+        loginwithEmailBtn.setOnClickListener(this);
+        gotoResetPasswordBtn.setOnClickListener(this);
 
     }
 
-    private View.OnClickListener gotoRegisterPageClicked = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-            startActivity(intent);
-        }
-    };
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.loginwithfacebookBtn:
+                loginManager.logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
+                break;
+            case R.id.returnImgAsBtn:
+                finish();
+                break;
+            case R.id.gotoregisterBtn:
+                Intent intent = new Intent(this,RegisterActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.loginWithEmailBtn:
+                //login with email and password
+                loginwithemail();
+                break;
+            case R.id.forgetpasswordTextViewAsBtn:
+                //go to reset password
+                Intent intent1 = new Intent(this,ResetPasswordActivity.class);
+                startActivity(intent1);
+                break;
+            default:
+                break;
 
-    private View.OnClickListener fbLoginBtnClicked = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            loginManager.logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
         }
-    };
+    }
+
+    private void loginwithemail(){
+        progressDialog.show();
+        final String email = emailField.getText().toString().trim();
+        final String password = passwordField.getText().toString().trim();
+
+        if(Tools.isEmail(email) && !password.isEmpty()) {
+            //email and password are ok
+            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        //sign in success
+                        progressDialog.dismiss();
+                        ep.save(email, password);
+                        finish();
+                    }else {
+                        progressDialog.dismiss();
+                        String err = task.getException().getLocalizedMessage();
+                        Toast.makeText(LoginActivity.this, err, Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        }else {
+            progressDialog.dismiss();
+            if(!Tools.isEmail(email)){
+                emailField.setError(getString(R.string.invalidemail));
+                emailField.requestFocus();
+            }
+            if(password.isEmpty()){
+                passwordField.setError(getString(R.string.passwordisempty));
+                passwordField.requestFocus();
+            }
+        }
+    }
+
+
 }

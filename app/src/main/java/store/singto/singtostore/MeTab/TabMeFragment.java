@@ -2,7 +2,6 @@ package store.singto.singtostore.MeTab;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
@@ -156,9 +154,16 @@ public class TabMeFragment extends Fragment {
         loginRegisterBtn.setVisibility(View.INVISIBLE);
         userNameTextView.setVisibility(View.VISIBLE);
         exitBtn.setVisibility(View.VISIBLE);
-        Picasso.with(getActivity()).load(user.getPhotoUrl()).transform(new RoundedImg()).error(R.mipmap.ic_useravatar).into(userAvatarImgView);
+
+        if(user.getPhotoUrl()!=null){
+            Picasso.with(getActivity()).load(user.getPhotoUrl()).transform(new RoundedImg()).error(R.mipmap.ic_useravatar).into(userAvatarImgView);
+        }else {
+            userAvatarImgView.setImageResource(R.mipmap.ic_useravatar);
+        }
         if(user.getDisplayName() != null){
             userNameTextView.setText(user.getDisplayName());
+        }else {
+            userNameTextView.setText(getString(R.string.yourname));
         }
 
 

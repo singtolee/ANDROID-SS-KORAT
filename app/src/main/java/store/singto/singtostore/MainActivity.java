@@ -5,10 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import store.singto.singtostore.AllProductsTab.TabAllProductsFragment;
 import store.singto.singtostore.HomeTab.TabHomeFragment;
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private BottomNavigationViewEx.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationViewEx.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationViewEx navigation =  findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -53,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
         transaction.add(R.id.tabs_container, new TabHomeFragment()).commit();
 
         Log.d("MainTab", "Started LIQ");
+
+        navigation.enableAnimation(false);
+        navigation.enableItemShiftingMode(false);
+        navigation.enableShiftingMode(false);
+        navigation.setTextVisibility(false);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
     }
 
