@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBlack"
+    android:background="@color/colorWhite"
     android:paddingStart="@dimen/dp20"
     android:paddingEnd="@dimen/dp20"
     tools:context="store.singto.singtostore.loginRegister.LoginActivity">
 
     <ImageView
         android:layout_marginTop="@dimen/dp20"
-        android:tint="@color/colorWhite"
+        android:tint="@color/colorAccent"
         android:src="@drawable/ic_highlight_off_black_24dp"
         android:id="@+id/returnImgAsBtn"
         android:layout_width="@dimen/dp40"
@@ -37,7 +37,7 @@
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             android:hint="@string/emailhint"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -53,7 +53,7 @@
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             android:hint="@string/passwordhint"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -61,7 +61,7 @@
     <TextView
         android:id="@+id/forgetpasswordTextViewAsBtn"
         android:layout_gravity="right"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorDarkGray"
         android:text="@string/forgetpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -72,8 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp20"
         android:text="@string/login"
-        android:textColor="@color/colorAccent"
-        android:background="@color/colorPrimary"/>
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorAccent"/>
 
 
     <Button
@@ -88,7 +88,7 @@
 
     <Button
         android:text="@string/gotoregisteraccount"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorDarkGray"
         android:background="@null"
         android:layout_marginTop="@dimen/dp20"
         android:id="@+id/gotoregisterBtn"
