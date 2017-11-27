@@ -43,6 +43,8 @@ public class TabMeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         mAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -129,6 +131,9 @@ public class TabMeFragment extends Fragment {
         exitBtn = view.findViewById(R.id.exitBtn);
         exitBtn.setOnClickListener(exitBtnClicked);
 
+        userAvatarImgView.setOnClickListener(gotoEditUserProfile);
+        userNameTextView.setOnClickListener(gotoEditUserProfile);
+
     }
 
     private View.OnClickListener exitBtnClicked = new View.OnClickListener() {
@@ -147,6 +152,19 @@ public class TabMeFragment extends Fragment {
             //go to login activity
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
+        }
+    };
+
+
+    private View.OnClickListener gotoEditUserProfile = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(mAuth.getCurrentUser() != null){
+                Intent i = new Intent(getActivity(), UserProfileActivity.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(R.xml.slide_from_right, R.xml.slide_to_left);
+            }
+
         }
     };
 

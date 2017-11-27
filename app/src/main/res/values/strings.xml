@@ -26,5 +26,9 @@
     <string name="submitting">Submitting</string>
     <string name="resetpasswordemailsended">Check your Email to Reset Password</string>
     <string name="ok">OK</string>
+    <string name="yourdetails">Your Details</string>
+    <string name="changeavatar">Change Profile Photo</string>
+    <string name="nickname">Nick Name</string>
+    <string name="nicknamesemicolon">Nick Name :</string>
 
 </resources>
