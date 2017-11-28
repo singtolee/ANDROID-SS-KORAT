@@ -30,5 +30,11 @@
     <string name="changeavatar">Change Profile Photo</string>
     <string name="nickname">Nick Name</string>
     <string name="nicknamesemicolon">Nick Name :</string>
+    <string name="update">Update</string>
+    <string name="updating">Updating</string>
+    <string name="namecannotbeempty">Name is empty</string>
+    <string name="userprofile">Profile</string>
+    <string name="editusername">Edit Name</string>
+    <string name="editavatar">Profile Photo</string>
 
 </resources>

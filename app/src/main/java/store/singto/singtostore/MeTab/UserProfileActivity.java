@@ -1,6 +1,7 @@
 
 package store.singto.singtostore.MeTab;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -35,6 +36,8 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
     void setupview(){
 
         toolbar = findViewById(R.id.userprofiletoolbar);
+        toolbar.setTitle(R.string.userprofile);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorAccent));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,9 +58,16 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId()){
             case R.id.editUserAvatar:
                 //change profile photo
+                Intent i = new Intent(this, EditAvatarActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.xml.slide_from_right, R.xml.slide_to_left);
                 break;
             case R.id.editUserName:
-                //change name
+                //change name, initiate a dialog fragment
+                Intent intent = new Intent(this, EditUserNameActivity.class);
+                intent.putExtra("name", smallusername.getText());
+                startActivity(intent);
+                overridePendingTransition(R.xml.slide_from_right, R.xml.slide_to_left);
                 break;
             default:
                 break;

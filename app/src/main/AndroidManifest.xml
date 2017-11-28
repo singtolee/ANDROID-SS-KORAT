@@ -42,8 +42,9 @@
         <activity android:name=".loginRegister.LoginActivity" />
         <activity android:name=".loginRegister.RegisterActivity" />
         <activity android:name=".loginRegister.ResetPasswordActivity" />
-        <activity
-            android:name=".MeTab.UserProfileActivity" />
+        <activity android:name=".MeTab.UserProfileActivity" />
+        <activity android:name=".MeTab.EditUserNameActivity" />
+        <activity android:name=".MeTab.EditAvatarActivity"></activity>
     </application>
 
 </manifest>

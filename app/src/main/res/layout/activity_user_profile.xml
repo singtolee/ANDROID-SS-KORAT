@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/bg"
     tools:context="store.singto.singtostore.MeTab.UserProfileActivity">
 
     <android.support.v7.widget.Toolbar
