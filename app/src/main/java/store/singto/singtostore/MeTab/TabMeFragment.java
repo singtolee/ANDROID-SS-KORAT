@@ -22,6 +22,7 @@ import store.singto.singtostore.R;
 import store.singto.singtostore.TOOLS.RoundedImg;
 import store.singto.singtostore.loginRegister.LoginActivity;
 
+
 public class TabMeFragment extends Fragment {
 
     private FirebaseAuth mAuth;
@@ -30,7 +31,7 @@ public class TabMeFragment extends Fragment {
 
     //UI elements
     private Button loginRegisterBtn;
-    private Button exitBtn;
+    private ImageView exitBtn;
     private ImageView userAvatarImgView;
     private TextView userNameTextView;
 
@@ -43,7 +44,7 @@ public class TabMeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        setHasOptionsMenu(true);
 
         mAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener() {

@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/bg"
     tools:context="store.singto.singtostore.MeTab.TabMeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp140"
-        android:background="#F08080">
+        android:background="@color/colorAccent">
 
         <!-- TODO: find a background image to replace this color -->
 
@@ -46,14 +47,17 @@
             android:layout_marginTop="@dimen/dp10"
             />
 
-        <Button
+        <ImageView
             android:id="@+id/exitBtn"
             android:visibility="invisible"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/com_facebook_button_like_background"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:src="@drawable/ic_exit_to_app_black_24dp"
+            android:tint="@color/colorWhite"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40" />
     </RelativeLayout>
 
 </LinearLayout>
