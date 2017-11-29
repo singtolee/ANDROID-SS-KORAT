@@ -41,6 +41,9 @@ dependencies {
 
     compile 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
 
+    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
+
+
 
 
     compile('com.facebook.android:facebook-login:[4,5)') {
