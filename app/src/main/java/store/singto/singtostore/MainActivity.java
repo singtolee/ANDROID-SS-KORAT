@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -14,8 +13,9 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import store.singto.singtostore.AllProductsTab.TabAllProductsFragment;
 import store.singto.singtostore.HomeTab.TabHomeFragment;
 import store.singto.singtostore.MeTab.TabMeFragment;
+import store.singto.singtostore.TOOLS.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private Fragment homeTab, allProductTab, meTab;
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull  Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

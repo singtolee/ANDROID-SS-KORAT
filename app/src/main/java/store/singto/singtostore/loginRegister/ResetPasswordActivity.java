@@ -17,9 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.BaseActivity;
 import store.singto.singtostore.TOOLS.Tools;
 
-public class ResetPasswordActivity extends AppCompatActivity implements View.OnClickListener {
+public class ResetPasswordActivity extends BaseActivity implements View.OnClickListener {
 
     private ImageView returnBtn;
     private Button sendemailBtn;

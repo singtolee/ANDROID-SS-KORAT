@@ -16,9 +16,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.BaseActivity;
 import store.singto.singtostore.TOOLS.Tools;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
+public class RegisterActivity extends BaseActivity implements View.OnClickListener{
 
     private Button registerBtn;
     private EditText emailField, passwordField;

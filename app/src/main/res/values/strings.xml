@@ -36,6 +36,13 @@
     <string name="userprofile">Profile</string>
     <string name="editusername">Edit Name</string>
     <string name="editavatar">Profile Photo</string>
+    <string name="language">Language</string>
+    <string name="selectlocale">Select Language</string>
+    <string name="en">English</string>
+    <string name="th">ไทย</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="nll">NULL</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

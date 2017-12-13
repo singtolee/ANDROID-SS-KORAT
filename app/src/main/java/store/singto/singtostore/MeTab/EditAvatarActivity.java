@@ -33,10 +33,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.BaseActivity;
 
 import static store.singto.singtostore.TOOLS.Tools.tintMenuIcon;
 
-public class EditAvatarActivity extends AppCompatActivity {
+public class EditAvatarActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private ImageView userAvatar;
@@ -84,16 +85,12 @@ public class EditAvatarActivity extends AppCompatActivity {
 
         progresshint = findViewById(R.id.progresshint);
 
-
         //call only once
         loadCurrentAvatar();
-
-
 
     }
 
     //show open album icon
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

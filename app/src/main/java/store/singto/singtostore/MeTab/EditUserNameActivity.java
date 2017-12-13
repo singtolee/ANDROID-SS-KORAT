@@ -19,8 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.BaseActivity;
 
-public class EditUserNameActivity extends AppCompatActivity {
+public class EditUserNameActivity extends BaseActivity {
 
     private FirebaseAuth auth;
 

@@ -32,10 +32,11 @@ import java.util.Arrays;
 import java.util.Map;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.BaseActivity;
 import store.singto.singtostore.TOOLS.SaveEmailPassword;
 import store.singto.singtostore.TOOLS.Tools;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     //sharedpreference
     private SaveEmailPassword ep;
