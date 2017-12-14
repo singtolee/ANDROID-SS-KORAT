@@ -21,8 +21,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Map;
 
+import store.singto.singtostore.MainActivity;
 import store.singto.singtostore.R;
 import store.singto.singtostore.TOOLS.BaseActivity;
+import store.singto.singtostore.TOOLS.LocaleManager;
 import store.singto.singtostore.TOOLS.RoundedImg;
 import store.singto.singtostore.TOOLS.SaveLocale;
 
@@ -166,10 +168,12 @@ public class UserProfileActivity extends BaseActivity implements View.OnClickLis
                 if (id == R.id.radioeng ) {
                     saveLocale.save(getString(R.string.en));
                     currentlocale.setText(R.string.en);
+                    setNewLocale("en");
                 }
                 if (id == R.id.radioth ) {
                     saveLocale.save(getString(R.string.th));
                     currentlocale.setText(R.string.th);
+                    setNewLocale("th");
                 }
 
                 popupWindow.dismiss();
@@ -182,5 +186,13 @@ public class UserProfileActivity extends BaseActivity implements View.OnClickLis
             }
         });
 
+    }
+
+    private boolean setNewLocale(String language){
+        LocaleManager.setNewLocale(this, language);
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+        System.exit(0);
+        return true;
     }
 }

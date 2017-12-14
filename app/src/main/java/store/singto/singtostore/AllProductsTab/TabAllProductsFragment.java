@@ -21,8 +21,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import store.singto.singtostore.R;
+import store.singto.singtostore.TOOLS.SaveLocale;
 
 public class TabAllProductsFragment extends Fragment {
 
@@ -32,6 +34,9 @@ public class TabAllProductsFragment extends Fragment {
     private List<Category> categories;
 
     private FirebaseFirestore db;
+
+    private SaveLocale saveLocale;
+    private Context context;
 
 
 
@@ -60,6 +65,9 @@ public class TabAllProductsFragment extends Fragment {
         categories = new ArrayList<>();
 
         db = FirebaseFirestore.getInstance();
+
+        context = getContext();
+        saveLocale = new SaveLocale(context);
 
 
         loadcategories();
@@ -90,7 +98,15 @@ public class TabAllProductsFragment extends Fragment {
                         Category category = documentSnapshot.toObject(Category.class);
                         categories.add(category);
                         CategoryprdFragment categoryprdFragment = new CategoryprdFragment();
-                        adapter.addFragment(categoryprdFragment, category.ENG);
+
+                        Map<String, String> data = saveLocale.read();
+                        if(data.get("locale").equals(getString(R.string.en))){
+                            adapter.addFragment(categoryprdFragment, category.ENG);
+                        }else {
+                            adapter.addFragment(categoryprdFragment, category.TH);
+                        }
+
+
                     }
                     viewPager.setAdapter(adapter);
                 }

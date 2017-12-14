@@ -34,4 +34,5 @@
     <string name="userprofile">"ข้อมูลส่วนตัว "</string>
     <string name="editusername">แก้ไขชื่อ</string>
     <string name="editavatar">"รูปประจำตัว "</string>
+    <string name="selectlocale">"เลือกภาษา "</string>
 </resources>
