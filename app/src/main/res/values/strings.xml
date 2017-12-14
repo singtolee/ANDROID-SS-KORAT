@@ -1,11 +1,11 @@
 <resources>
-    <string name="facebook_app_id">740063172851347</string>
-    <string name="fb_login_protocol_scheme">fb740063172851347</string>
-    <string name="app_name">SingtoStore</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="tab_me">Me</string>
+    <string name="facebook_app_id" translatable="false">740063172851347</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb740063172851347</string>
+    <string name="app_name" translatable="false">SingtoStore</string>
+    <string name="title_home" translatable="false">Home</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="tab_me" translatable="false">Me</string>
     <string name="yourname">Your Name</string>
     <string name="telluserlogin">Login or Register</string>
     <string name="emailhint">Email</string>
@@ -28,8 +28,8 @@
     <string name="ok">OK</string>
     <string name="yourdetails">Your Details</string>
     <string name="changeavatar">Change Profile Photo</string>
-    <string name="nickname">Nick Name</string>
-    <string name="nicknamesemicolon">Nick Name :</string>
+    <string name="nickname">Name</string>
+    <string name="nicknamesemicolon">Name :</string>
     <string name="update">Update</string>
     <string name="updating">Updating</string>
     <string name="namecannotbeempty">Name is empty</string>
@@ -38,13 +38,13 @@
     <string name="editavatar">Profile Photo</string>
     <string name="language">Language</string>
     <string name="selectlocale">Select Language</string>
-    <string name="en">English</string>
-    <string name="th">ไทย</string>
+    <string name="en" translatable="false">English</string>
+    <string name="th" translatable="false">ไทย</string>
     <string name="apply">Apply</string>
     <string name="cancel">Cancel</string>
-    <string name="nll">NULL</string>
+    <string name="nll" translatable="false">NULL</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
 </resources>

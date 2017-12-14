@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SingtoStore</string>
+    <string name="invalidemail">"ที่อยู่อีเมลที่ไม่ถูกต้อง "</string>
+    <string name="userphonenumber">หมายเลขโทรศัพท์</string>
+    <string name="ok">ตกลง</string>
+    <string name="language">ภาษา</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="apply">ตกลง</string>
+    <string name="login">เข้าสู่ระบบ</string>
+    <string name="emailhint">อีเมล์</string>
+    <string name="passwordhint">รหัสผ่าน</string>
+    <string name="yourname">ชื่อ</string>
+    <string name="telluserlogin">เข้าสู่ระบบหรือลงทะเบียน</string>
+    <string name="register">สมัครสมาชิก</string>
+    <string name="forgetpassword">ลืมรหัสผ่าน</string>
+    <string name="loginwithfacebook">เข้าสู่ระบบด้วย Facebook</string>
+    <string name="gotoregisteraccount">ไปที่ลงทะเบียน</string>
+    <string name="facebooklogincancelled">ยกเลิกการเข้าสู่ระบบแล้ว</string>
+    <string name="passwordisempty">รหัสผ่านว่างเปล่า</string>
+    <string name="passwordatleast6chars">รหัสผ่านควรมีอย่างน้อย 6 ตัวอักษร</string>
+    <string name="islogin">กำลังเข้าสู่ระบบ ...</string>
+    <string name="isregistering">การบันทึก</string>
+    <string name="sendresetpasswordemail">ส่งอีเมลรหัสผ่านใหม่</string>
+    <string name="submitting">ส่ง</string>
+    <string name="resetpasswordemailsended">ตรวจสอบอีเมลเพื่อรีเซ็ตรหัสผ่าน</string>
+    <string name="yourdetails">รายละเอียดของคุณ</string>
+    <string name="changeavatar">เปลี่ยนรูปโปรไฟล์</string>
+    <string name="nickname">ชื่อ</string>
+    <string name="nicknamesemicolon">ชื่อ :</string>
+    <string name="update">ปรับปรุง</string>
+    <string name="updating">อัปเดต</string>
+    <string name="namecannotbeempty">ชื่อว่างเปล่า</string>
+    <string name="userprofile">"ข้อมูลส่วนตัว "</string>
+    <string name="editusername">แก้ไขชื่อ</string>
+    <string name="editavatar">"รูปประจำตัว "</string>
+</resources>
