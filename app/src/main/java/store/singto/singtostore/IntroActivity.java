@@ -58,12 +58,12 @@ public class IntroActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnENG:
                 //set eng as default language, set not first time launch
                 saveLocale.save(getString(R.string.en));
-                gotomainactivity(getString(R.string.en));
+                gotomainactivity("en");
                 break;
 
             case R.id.btnTH:
                 saveLocale.save(getString(R.string.th));
-                gotomainactivity(getString(R.string.th));
+                gotomainactivity("th");
                 break;
             default:
                 break;
