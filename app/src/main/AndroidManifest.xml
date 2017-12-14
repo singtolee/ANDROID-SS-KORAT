@@ -37,18 +37,24 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.soundcloud.android.crop.CropImageActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.soundcloud.android.crop.CropImageActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".loginRegister.LoginActivity" />
         <activity android:name=".loginRegister.RegisterActivity" />
         <activity android:name=".loginRegister.ResetPasswordActivity" />
         <activity android:name=".MeTab.UserProfileActivity" />
         <activity android:name=".MeTab.EditUserNameActivity" />
-        <activity android:name=".MeTab.EditAvatarActivity"></activity>
+        <activity android:name=".MeTab.EditAvatarActivity" />
+        <activity android:name=".IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

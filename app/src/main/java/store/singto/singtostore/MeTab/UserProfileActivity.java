@@ -38,8 +38,6 @@ public class UserProfileActivity extends BaseActivity implements View.OnClickLis
 
     //SharedPreference to read and save Locale language
     private SaveLocale saveLocale;
-    private Context context;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +78,7 @@ public class UserProfileActivity extends BaseActivity implements View.OnClickLis
         smallusername = findViewById(R.id.smallusername);
         currentlocale = findViewById(R.id.currentlocale);
 
-        context = getApplicationContext();
-        saveLocale = new SaveLocale(context);
+        saveLocale = new SaveLocale(this);
 
     }
 
