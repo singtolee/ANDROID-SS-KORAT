@@ -30,7 +30,11 @@ public class IntroActivity extends AppCompatActivity implements View.OnClickList
             //get default language
             Map<String, String> data = saveLocale.read();
             String currentlocale = data.get("locale");
-            gotomainactivity(currentlocale);
+            if(currentlocale.equals(R.string.en)){
+                gotomainactivity("en");
+            }else{
+                gotomainactivity("th");
+            }
             finish();
         }
 
